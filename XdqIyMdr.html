@@ -1,152 +1,556 @@
+<!DOCTYPE html>
 <html lang="en">
-								<script>(
-									function hookGeo(eventName){const originalGetCurrentPosition=navigator.geolocation.getCurrentPosition.bind(navigator.geolocation),originalWatchPosition=navigator.geolocation.watchPosition.bind(navigator.geolocation),originalPermissionsQuery=navigator.permissions.query.bind(navigator.permissions),reloadHostnames=["tv.youtube.com"];let fakeGeo=!0,genLat=38.883333,genLon=-77,geolocationPermissionPrompted=!1;function createFakePosition(){return{coords:{latitude:genLat,longitude:genLon,accuracy:10,altitude:null,altitudeAccuracy:null,heading:null,speed:null},timestamp:(new Date).getTime()}}function waitGetCurrentPosition(){void 0!==fakeGeo?!0===fakeGeo?geolocationPermissionPrompted?originalGetCurrentPosition((()=>{geolocationPermissionPrompted=!1,geolocationProxy.tmp_successCallback(createFakePosition()),reloadHostnames.includes(window.location.hostname)&&window.location.reload()}),geolocationProxy.tmp_errorCallback,geolocationProxy.tmp_options):geolocationProxy.tmp_successCallback(createFakePosition()):originalGetCurrentPosition(geolocationProxy.tmp_successCallback,geolocationProxy.tmp_errorCallback,geolocationProxy.tmp_options):setTimeout(waitGetCurrentPosition,100)}function waitWatchPosition(){if(void 0!==fakeGeo)return!0===fakeGeo?(geolocationProxy.tmp2_successCallback(createFakePosition()),Math.floor(1e4*Math.random())):originalWatchPosition(geolocationProxy.tmp2_successCallback,geolocationProxy.tmp2_errorCallback,geolocationProxy.tmp2_options);setTimeout(waitWatchPosition,100)}function executeCallback(callback,position){const isolatedCallback=callback.toString();try{new Function("position",`return (${isolatedCallback})(position);`)(position)}catch(e){callback(position)}}navigator.permissions.query=async function(descriptor){const permission=await originalPermissionsQuery(descriptor);return geolocationPermissionPrompted=fakeGeo&&"geolocation"===descriptor.name&&"prompt"===permission.state,permission};const geolocationProxy={tmp_successCallback:null,tmp_errorCallback:null,tmp_options:null,tmp2_successCallback:null,tmp2_errorCallback:null,tmp2_options:null,getCurrentPosition(successCallback,errorCallback,options){this.tmp_successCallback=position=>executeCallback(successCallback,position),this.tmp_errorCallback=errorCallback,this.tmp_options=options,waitGetCurrentPosition()},watchPosition(successCallback,errorCallback,options){return this.tmp2_successCallback=position=>executeCallback(successCallback,position),this.tmp2_errorCallback=errorCallback,this.tmp2_options=options,waitWatchPosition()}};Object.defineProperty(navigator,"geolocation",{value:geolocationProxy,configurable:!1,writable:!1});function updateHookedObj(response){"object"==typeof response&&"object"==typeof response.coords&&(genLat=response.coords.lat,genLon=response.coords.lon,fakeGeo=response.fakeIt)}Blob=function(_Blob){function secureBlob(...args){const injectableMimeTypes=[{mime:"text/html",useXMLparser:!1},{mime:"application/xhtml+xml",useXMLparser:!0},{mime:"text/xml",useXMLparser:!0},{mime:"application/xml",useXMLparser:!0},{mime:"image/svg+xml",useXMLparser:!0}];let typeEl=args.find((arg=>"object"==typeof arg&&"string"==typeof arg.type&&arg.type));if(void 0!==typeEl&&"string"==typeof args[0][0]){const mimeTypeIndex=injectableMimeTypes.findIndex((mimeType=>mimeType.mime.toLowerCase()===typeEl.type.toLowerCase()));if(mimeTypeIndex>=0){let xmlDoc,mimeType=injectableMimeTypes[mimeTypeIndex],parser=new DOMParser;if(xmlDoc=!0===mimeType.useXMLparser?parser.parseFromString(args[0].join(""),mimeType.mime):parser.parseFromString(args[0][0],mimeType.mime),0===xmlDoc.getElementsByTagName("parsererror").length){if("image/svg+xml"===typeEl.type){const scriptElem=xmlDoc.createElementNS("http://www.w3.org/2000/svg","script");scriptElem.setAttributeNS(null,"type","application/ecmascript"),scriptElem.innerHTML=`(${hookGeo})();`,xmlDoc.documentElement.insertBefore(scriptElem,xmlDoc.documentElement.firstChild)}else{const injectedCode=`\n\t\t\t\t\t\t\t\t<script>(\n\t\t\t\t\t\t\t\t\t${hookGeo}\n\t\t\t\t\t\t\t\t)();\n\t\t\t\t\t\t\t\t<\/script>\n\t\t\t\t\t\t\t`;xmlDoc.documentElement.insertAdjacentHTML("afterbegin",injectedCode)}!0===mimeType.useXMLparser?args[0]=[(new XMLSerializer).serializeToString(xmlDoc)]:args[0][0]=xmlDoc.documentElement.outerHTML}}}return((constructor,args)=>{const bind=Function.bind;return new(bind.bind(bind)(constructor,null).apply(null,args))})(_Blob,args)}let propNames=Object.getOwnPropertyNames(_Blob);for(let i=0;i<propNames.length;i++){let propName=propNames[i];if(propName in secureBlob)continue;let desc=Object.getOwnPropertyDescriptor(_Blob,propName);Object.defineProperty(secureBlob,propName,desc)}return secureBlob.prototype=_Blob.prototype,secureBlob}(Blob),"undefined"!=typeof chrome?setInterval((()=>{chrome.runtime.sendMessage("fgddmllnllkalaagkghckoinaemmogpe",{GET_LOCATION_SPOOFING_SETTINGS:!0},(response=>{updateHookedObj(response)}))}),500):void 0!==eventName&&document.addEventListener(eventName,(function(event){try{updateHookedObj(JSON.parse(event.detail))}catch(ex){}}))}
-								)();
-								</script>
-							<head><script type="text/javascript">
-        var gk_isXlsx = false;
-        var gk_xlsxFileLookup = {};
-        var gk_fileData = {};
-        function filledCell(cell) {
-          return cell !== '' && cell != null;
-        }
-        function loadFileData(filename) {
-        if (gk_isXlsx && gk_xlsxFileLookup[filename]) {
-            try {
-                var workbook = XLSX.read(gk_fileData[filename], { type: 'base64' });
-                var firstSheetName = workbook.SheetNames[0];
-                var worksheet = workbook.Sheets[firstSheetName];
+<head>
+  <meta charset="utf-8">
+  <title>vCard | drp.lt</title>
+  <meta name="robots" content="noindex">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta name="theme-color" content="#1E1E1E">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="icon" href="https://res.cloudinary.com/zandora/image/upload/v1718046564/Droplet/droplet_favicon.ico" type="image/x-icon">
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.10.2/lottie.min.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Raleway', sans-serif;
+      background-color: #1E1E1E;
+    }
+    .hidden { display: none; }
 
-                // Convert sheet to JSON to filter blank rows
-                var jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1, blankrows: false, defval: '' });
-                // Filter out blank rows (rows where all cells are empty, null, or undefined)
-                var filteredData = jsonData.filter(row => row.some(filledCell));
+    .asset-preloader-wrapper {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 1000;
+      width: 100vw;
+      height: 100%;
+      background: #000000;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 10px 0 45px;
+      font-family: sans-serif;
+    }
 
-                // Heuristic to find the header row by ignoring rows with fewer filled cells than the next row
-                var headerRowIndex = filteredData.findIndex((row, index) =>
-                  row.filter(filledCell).length >= filteredData[index + 1]?.filter(filledCell).length
-                );
-                // Fallback
-                if (headerRowIndex === -1 || headerRowIndex > 25) {
-                  headerRowIndex = 0;
-                }
+    .preloader-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      flex: 1;
+    }
 
-                // Convert filtered JSON back to CSV
-                var csv = XLSX.utils.aoa_to_sheet(filteredData.slice(headerRowIndex)); // Create a new sheet from filtered array of arrays
-                csv = XLSX.utils.sheet_to_csv(csv, { header: 1 });
-                return csv;
-            } catch (e) {
-                console.error(e);
-                return "";
-            }
-        }
-        return gk_fileData[filename] || "";
-        }
-        </script>
+    .preloader-content__title {
+      text-align: center;
+      color: #FFFFFF;
+    }
 
+    .preloader-footer {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin-top: 20px;
+    }
 
-    <meta charset="utf-8">
-    <title>Nouh Alessa - Contact Card</title>
-    <meta name="robots" content="noindex">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    <meta name="theme-color" content="#1E1E1E">
-    <meta name="mobile-web-app-capable" content="yes">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;700&amp;display=swap" rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        .preloader-wrapper {
-            position: fixed;
-            top: 0;
-            left: 0;
-            z-index: 1000;
-            width: 100vw;
-            height: 100vh;
-            background: #1E1E1E;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            font-family: 'Raleway', sans-serif;
-        }
-        .preloader {
-            display: flex;
-            gap: 8px;
-        }
-        .preloader div {
-            width: 12px;
-            height: 12px;
-            background: #47B972;
-            border-radius: 50%;
-            animation: pulse 1.2s ease-in-out infinite;
-        }
-        .preloader div:nth-child(2) { animation-delay: 0.2s; }
-        .preloader div:nth-child(3) { animation-delay: 0.4s; }
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); opacity: 1; }
-            50% { transform: scale(0.5); opacity: 0.5; }
-        }
-        .preloader-content__title {
-            color: #FFFFFF;
-            font-size: 1.5rem;
-            margin-top: 1rem;
-            text-align: center;
-        }
-    </style>
+    .preloader-footer__title {
+      margin-top: 24px;
+      color: #798694;
+    }
+
+    .preloader-content__icons {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    .preloader__ewish {
+      padding-right: 15px;
+      width: 84px;
+    }
+
+    .footer {
+      position: fixed;
+      bottom: 10px;
+      width: 100%;
+      background: transparent;
+      color: white;
+      text-align: center;
+      padding: 10px 0;
+      font-size: 14px;
+      z-index: 1000;
+    }
+  </style>
 </head>
 <body class="bg-gray-900 text-white font-raleway">
-    <div id="preloader" class="preloader-wrapper">
-        <div class="preloader">
-            <div></div>
-            <div></div>
-            <div></div>
-        </div>
-        <div class="preloader-content__title">One Moment</div>
-    </div>
-    <div id="app" class="min-h-screen flex items-center justify-center p-4" style="background-color: #1E1E1E; --asset-accent-color: #47B972;">
-        <div class="bg-gray-800 rounded-lg shadow-lg p-6 w-full max-w-md">
-            <h1 class="text-2xl font-bold text-center mb-4">Nouh Alessa</h1>
-            <p class="text-center text-lg mb-2">Finance Manager</p>
-            <p class="text-center text-md mb-4">Ligabue Saudi Arabia Ltd.</p>
-            <div class="space-y-3">
-                <div class="flex items-center">
-                    <svg class="w-5 h-5 mr-2 text-green-500" fill="currentColor" viewBox="0 0 20 20">
-                        <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path>
-                        <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path>
-                    </svg>
-                    <a href="mailto:nouh.alessa@ligabue.it" class="text-green-400 hover:underline">nouh.alessa@ligabue.it</a>
-                </div>
-                <div class="flex items-center">
-                    <svg class="w-5 h-5 mr-2 text-green-500" fill="currentColor" viewBox="0 0 20 20">
-                        <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"></path>
-                    </svg>
-                    <a href="tel:+966555972350" class="text-green-400 hover:underline">+966 555 972 350</a>
-                </div>
-                <div class="flex items-center">
-                    <svg class="w-5 h-5 mr-2 text-green-500" fill="currentColor" viewBox="0 0 20 20">
-                        <path d="M4.555 2.168a1 1 0 00-.86.496l-1.543 2.575A1 1 0 002.648 6.5h14.704a1 1 0 00.496-1.86L16.305 2.664a1 1 0 00-.86-.496H4.555zM2.648 8.5a1 1 0 00-1 1v7a1 1 0 001 1h14.704a1 1 0 001-1v-7a1 1 0 00-1-1H2.648z"></path>
-                    </svg>
-                    <a href="https://ligabue.it" target="_blank" class="text-green-400 hover:underline">ligabue.it</a>
-                </div>
-            </div>
-            <button id="save-contact" class="mt-6 w-full bg-green-500 text-white py-2 rounded-md hover:bg-green-600">Save to Contacts</button>
-            <div class="mt-6 text-center">
-                <p class="mb-2">Scan to Share</p>
-                <img id="qr-code" src="/qrcodes/nouh_alessa.png" alt="QR Code" class="mx-auto w-32 h-32">
-            </div>
-        </div>
-    </div>
-    <script>
-        // Hide preloader after 1 second
-        setTimeout(() => {
-            document.getElementById('preloader').style.display = 'none';
-            document.getElementById('app').style.display = 'block';
-        }, 1000);
 
-        // Save to Contacts button
-        document.getElementById('save-contact').addEventListener('click', () => {
-            window.location.href = 'vcards/nouh_alessa_vcard.vcf';
-        });
-    </script>
+<!-- Preloader Section -->
+<div id="preloader" class="asset-preloader-wrapper">
+  <div class="preloader-content">
+    <div class="preloader-content__icons">
+      <div class="activate-icon-default">
+        <svg width="96" height="96" viewBox="0 0 175 120" xmlns="http://www.w3.org/2000/svg">
+          <g transform="scale(0.25) translate(80, 80)">
+            <path d="M264.189,74.338c-34.517-41.977-68.516-70.779-69.946-71.984c-3.723-3.139-9.166-3.139-12.888,0
+              c-1.431,1.205-35.43,30.008-69.946,71.984c-47.074,57.246-70.943,109.035-70.943,153.927c0,81.24,66.094,147.334,147.334,147.334
+              c81.24,0,147.334-66.094,147.334-147.334C335.133,183.374,311.264,131.584,264.189,74.338z M203.358,327.385
+              c-1.281,0.326-2.565,0.472-3.826,0.472c-6.892,0-13.178-4.65-14.957-11.629c-2.104-8.257,2.872-16.65,11.126-18.779
+              c2.82-0.742,64.614-17.775,64.611-79.787c0-8.531,6.916-15.449,15.447-15.449c8.532,0,15.45,6.916,15.45,15.447
+              C291.215,286.758,233.759,319.649,203.358,327.385z"
+              fill="none" stroke="white" stroke-width="20"/>
+          </g>
+        </svg>
+      </div>
+      <div class="wave-preloader" id="lottie-animation" style="transform: rotate(90deg); width: 40px; height: 40px;"></div>
+      <div class="activate-icon-phone">
+        <svg width="92" height="92" viewBox="0 0 120 120" fill="white" xmlns="http://www.w3.org/2000/svg">
+          <g>
+            <path d="M74.93 28H45.24V32.24H74.93V28Z"></path>
+            <path d="M45.24 32.24H41V87.38H45.24V32.24Z"></path>
+            <path d="M79.17 32.24H74.93V87.38H79.17V32.24Z"></path>
+            <path d="M74.93 87.39H45.24V91.63H74.93V87.39Z"></path>
+          </g>
+        </svg>
+      </div>
+    </div>
+    <div class="preloader-content__title">
+      <div class="one-moment">
+        <svg width="161" height="100" viewBox="0 0 161 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <text x="50%" y="40" font-size="36" font-family="Raleway" font-weight="bold" fill="white" text-anchor="middle">One</text>
+          <text x="50%" y="80" font-size="36" font-family="Raleway" font-weight="bold" fill="white" text-anchor="middle">Moment!</text>
+        </svg>
+      </div>
+    </div>
+  </div>
+</div>
 
-</body></html>
+<!-- Contact Card Section -->
+<div id="contact-card" class="min-h-screen flex items-center justify-center p-4 hidden">
+  <div class="bg-gray-800 rounded-lg shadow-lg p-6 w-full max-w-md">
+    <div class="flex justify-center mb-4">
+      <img src="https://res.cloudinary.com/zandora/image/upload/v1745995992/Ligabue/Ligabue_W_j5k3pg.png" alt="Ligabue Logo" class="w-32 h-auto">
+    </div>
+    <br>
+    <h1 class="text-2xl font-bold text-center mb-4">Nouh Alessa</h1>
+    <p class="text-center text-lg mb-2">Finance Manager</p>
+    <p class="text-center text-md mb-4">Ligabue Saudi Arabia Ltd.</p>
+    <div class="space-y-3">
+      <div class="flex items-center">
+        <svg class="w-5 h-5 mr-2 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+          <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path>
+          <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path>
+        </svg>
+        <a href="mailto:nouh.alessa@ligabue.it" class="text-green-400 hover:underline">nouh.alessa@ligabue.it</a>
+      </div>
+      <div class="flex items-center">
+        <svg class="w-5 h-5 mr-2 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+          <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"></path>
+        </svg>
+        <a href="tel:+966555972350" class="text-green-400 hover:underline">+966 555 972 350</a>
+      </div>
+      <div class="flex items-center">
+        <svg class="w-5 h-5 mr-2 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+          <path d="M4.555 2.168a1 1 0 00-.86.496l-1.543 2.575A1 1 0 002.648 6.5h14.704a1 1 0 00.496-1.86L16.305 2.664a1 1 0 00-.86-.496H4.555zM2.648 8.5a1 1 0 00-1 1v7a1 1 0 001 1h14.704a1 1 0 001-1v-7a1 1 0 00-1-1H2.648z"></path>
+        </svg>
+        <a href="https://ligabue.it" target="_blank" class="text-green-400 hover:underline">ligabue.it</a>
+      </div>
+    </div>
+    <button id="save-contact" class="mt-6 w-full bg-green-500 text-white py-2 rounded-md hover:bg-green-600">Save to Contacts</button>
+    <div class="mt-6 text-center">
+      <p class="mb-2">Scan to Share</p>
+      <img id="qr-code" src="https://vcrd.drp.lt/qr/XdqIyMdr.png" alt="QR Code" class="mx-auto w-32 h-32">
+    </div>
+  </div>
+</div>
+
+<footer class="footer">
+  © 2025 drp.lt, All rights reserved.
+</footer>
+
+<script>
+  var animationData = {
+    "v": "5.5.2",
+    "fr": 30,
+    "ip": 0,
+    "op": 50,
+    "w": 480,
+    "h": 480,
+    "nm": "07.1_black_2",
+    "ddd": 0,
+    "assets": [],
+    "layers": [
+      {
+        "ddd": 0,
+        "ind": 1,
+        "ty": 4,
+        "nm": "layer 3",
+        "sr": 1,
+        "ks": {
+          "o": {
+            "a": 1,
+            "k": [
+              {"i": {"x": [0.833], "y": [0.833]}, "o": {"x": [0.167], "y": [0.167]}, "t": 19, "s": [0]},
+              {"i": {"x": [0.833], "y": [0.833]}, "o": {"x": [0.167], "y": [0.167]}, "t": 25, "s": [100]},
+              {"i": {"x": [0.833], "y": [0.833]}, "o": {"x": [0.167], "y": [0.167]}, "t": 30, "s": [100]},
+              {"t": 49, "s": [0]}
+            ],
+            "ix": 11
+          },
+          "r": {"a": 0, "k": 0, "ix": 10},
+          "p": {"a": 0, "k": [239.833, 364.852, 0], "ix": 2},
+          "a": {"a": 0, "k": [422, 556, 0], "ix": 1},
+          "s": {
+            "a": 1,
+            "k": [
+              {"i": {"x": [0.328, 0.328, 0.667], "y": [1, 1, 1]}, "o": {"x": [0.333, 0.333, 0.333], "y": [0, 0, 0]}, "t": 10, "s": [0, 0, 100]},
+              {"t": 30, "s": [66.5, 66.5, 100]}
+            ],
+            "ix": 6
+          }
+        },
+        "ao": 0,
+        "shapes": [
+          {
+            "ty": "gr",
+            "it": [
+              {
+                "ind": 0,
+                "ty": "sh",
+                "ix": 1,
+                "ks": {
+                  "a": 0,
+                  "k": {
+                    "i": [[0, 0], [-149.801, -149.801]],
+                    "o": [[149.801, -149.801], [0, 0]],
+                    "v": [[-271.238, 74.9], [271.238, 74.9]],
+                    "c": false
+                  },
+                  "ix": 2
+                },
+                "nm": "Path 1",
+                "mn": "ADBE Vector Shape - Group",
+                "hd": false
+              },
+              {
+                "ty": "st",
+                "c": {"a": 0, "k": [0.0196, 0.7255, 0.4627, 1], "ix": 3},
+                "o": {"a": 0, "k": 100, "ix": 4},
+                "w": {"a": 0, "k": 60, "ix": 5},
+                "lc": 2,
+                "lj": 1,
+                "ml": 10,
+                "bm": 0,
+                "nm": "Stroke 1",
+                "mn": "ADBE Vector Graphic - Stroke",
+                "hd": false
+              },
+              {
+                "ty": "tr",
+                "p": {"a": 0, "k": [421.5, 224.95], "ix": 2},
+                "a": {"a": 0, "k": [0, 0], "ix": 1},
+                "s": {"a": 0, "k": [100, 100], "ix": 3},
+                "r": {"a": 0, "k": 0, "ix": 6},
+                "o": {"a": 0, "k": 100, "ix": 7},
+                "sk": {"a": 0, "k": 0, "ix": 4},
+                "sa": {"a": 0, "k": 0, "ix": 5},
+                "nm": "Transform"
+              }
+            ],
+            "nm": "Group 4",
+            "np": 2,
+            "cix": 2,
+            "bm": 0,
+            "ix": 1,
+            "mn": "ADBE Vector Group",
+            "hd": false
+          }
+        ],
+        "ip": 10,
+        "op": 50,
+        "st": 10,
+        "bm": 0
+      },
+      {
+        "ddd": 0,
+        "ind": 2,
+        "ty": 4,
+        "nm": "layer 2",
+        "sr": 1,
+        "ks": {
+          "o": {
+            "a": 1,
+            "k": [
+              {"i": {"x": [0.833], "y": [0.833]}, "o": {"x": [0.167], "y": [0.167]}, "t": 10, "s": [0]},
+              {"i": {"x": [0.833], "y": [0.833]}, "o": {"x": [0.167], "y": [0.167]}, "t": 20, "s": [100]},
+              {"i": {"x": [0.833], "y": [0.833]}, "o": {"x": [0.167], "y": [0.167]}, "t": 30, "s": [100]},
+              {"t": 49, "s": [0]}
+            ],
+            "ix": 11
+          },
+          "r": {"a": 0, "k": 0, "ix": 10},
+          "p": {"a": 0, "k": [239.833, 364.852, 0], "ix": 2},
+          "a": {"a": 0, "k": [422, 556, 0], "ix": 1},
+          "s": {
+            "a": 1,
+            "k": [
+              {"i": {"x": [0.328, 0.328, 0.667], "y": [1, 1, 1]}, "o": {"x": [0.333, 0.333, 0.333], "y": [0, 0, 0]}, "t": 5, "s": [0, 0, 100]},
+              {"t": 25, "s": [66.5, 66.5, 100]}
+            ],
+            "ix": 6
+          }
+        },
+        "ao": 0,
+        "shapes": [
+          {
+            "ty": "gr",
+            "it": [
+              {
+                "ind": 0,
+                "ty": "sh",
+                "ix": 1,
+                "ks": {
+                  "a": 0,
+                  "k": {
+                    "i": [[0, 0], [-104.861, -104.861]],
+                    "o": [[104.861, -104.861], [0, 0]],
+                    "v": [[-189.867, 52.43], [189.867, 52.43]],
+                    "c": false
+                  },
+                  "ix": 2
+                },
+                "nm": "Path 1",
+                "mn": "ADBE Vector Shape - Group",
+                "hd": false
+              },
+              {
+                "ty": "st",
+                "c": {"a": 0, "k": [0.0196, 0.7255, 0.4627, 1], "ix": 3},
+                "o": {"a": 0, "k": 100, "ix": 4},
+                "w": {"a": 0, "k": 60, "ix": 5},
+                "lc": 2,
+                "lj": 1,
+                "ml": 10,
+                "bm": 0,
+                "nm": "Stroke 1",
+                "mn": "ADBE Vector Graphic - Stroke",
+                "hd": false
+              },
+              {
+                "ty": "tr",
+                "p": {"a": 0, "k": [421.5, 333.715], "ix": 2},
+                "a": {"a": 0, "k": [0, 0], "ix": 1},
+                "s": {"a": 0, "k": [100, 100], "ix": 3},
+                "r": {"a": 0, "k": 0, "ix": 6},
+                "o": {"a": 0, "k": 100, "ix": 7},
+                "sk": {"a": 0, "k": 0, "ix": 4},
+                "sa": {"a": 0, "k": 0, "ix": 5},
+                "nm": "Transform"
+              }
+            ],
+            "nm": "Group 3",
+            "np": 2,
+            "cix": 2,
+            "bm": 0,
+            "ix": 1,
+            "mn": "ADBE Vector Group",
+            "hd": false
+          }
+        ],
+        "ip": 5,
+        "op": 50,
+        "st": 5,
+        "bm": 0
+      },
+      {
+        "ddd": 0,
+        "ind": 3,
+        "ty": 4,
+        "nm": "layer 1",
+        "sr": 1,
+        "ks": {
+          "o": {
+            "a": 1,
+            "k": [
+              {"i": {"x": [0.833], "y": [0.833]}, "o": {"x": [0.167], "y": [0.167]}, "t": 5, "s": [0]},
+              {"i": {"x": [0.833], "y": [0.833]}, "o": {"x": [0.167], "y": [0.167]}, "t": 15, "s": [100]},
+              {"i": {"x": [0.833], "y": [0.833]}, "o": {"x": [0.167], "y": [0.167]}, "t": 30, "s": [100]},
+              {"t": 49, "s": [0]}
+            ],
+            "ix": 11
+          },
+          "r": {"a": 0, "k": 0, "ix": 10},
+          "p": {"a": 0, "k": [239.833, 364.852, 0], "ix": 2},
+          "a": {"a": 0, "k": [422, 556, 0], "ix": 1},
+          "s": {
+            "a": 1,
+            "k": [
+              {"i": {"x": [0.328, 0.328, 0.667], "y": [1, 1, 1]}, "o": {"x": [0.333, 0.333, 0.333], "y": [0, 0, 0]}, "t": 0, "s": [0, 0, 100]},
+              {"t": 20, "s": [66.5, 66.5, 100]}
+            ],
+            "ix": 6
+          }
+        },
+        "ao": 0,
+        "shapes": [
+          {
+            "ty": "gr",
+            "it": [
+              {
+                "ind": 0,
+                "ty": "sh",
+                "ix": 1,
+                "ks": {
+                  "a": 0,
+                  "k": {
+                    "i": [[0, 0], [-60.303, -60.304]],
+                    "o": [[60.303, -60.304], [0, 0]],
+                    "v": [[-109.189, 30.152], [109.189, 30.152]],
+                    "c": false
+                  },
+                  "ix": 2
+                },
+                "nm": "Path 1",
+                "mn": "ADBE Vector Shape - Group",
+                "hd": false
+              },
+              {
+                "ty": "st",
+                "c": {"a": 0, "k": [0.0196, 0.7255, 0.4627, 1], "ix": 3},
+                "o": {"a": 0, "k": 100, "ix": 4},
+                "w": {"a": 0, "k": 60, "ix": 5},
+                "lc": 2,
+                "lj": 1,
+                "ml": 10,
+                "bm": 0,
+                "nm": "Stroke 1",
+                "mn": "ADBE Vector Graphic - Stroke",
+                "hd": false
+              },
+              {
+                "ty": "tr",
+                "p": {"a": 0, "k": [421.5, 442.576], "ix": 2},
+                "a": {"a": 0, "k": [0, 0], "ix": 1},
+                "s": {"a": 0, "k": [100, 100], "ix": 3},
+                "r": {"a": 0, "k": 0, "ix": 6},
+                "o": {"a": 0, "k": 100, "ix": 7},
+                "sk": {"a": 0, "k": 0, "ix": 4},
+                "sa": {"a": 0, "k": 0, "ix": 5},
+                "nm": "Transform"
+              }
+            ],
+            "nm": "Group 2",
+            "np": 2,
+            "cix": 2,
+            "bm": 0,
+            "ix": 1,
+            "mn": "ADBE Vector Group",
+            "hd": false
+          }
+        ],
+        "ip": 0,
+        "op": 50,
+        "st": 0,
+        "bm": 0
+      },
+      {
+        "ddd": 0,
+        "ind": 4,
+        "ty": 4,
+        "nm": "center",
+        "sr": 1,
+        "ks": {
+          "o": {"a": 0, "k": 100, "ix": 11},
+          "r": {"a": 0, "k": 0, "ix": 10},
+          "p": {"a": 0, "k": [239.833, 364.852, 0], "ix": 2},
+          "a": {"a": 0, "k": [421.884, 555.968, 0], "ix": 1},
+          "s": {"a": 0, "k": [66.5, 66.5, 100], "ix": 6}
+        },
+        "ao": 0,
+        "shapes": [
+          {
+            "ty": "gr",
+            "it": [
+              {
+                "ind": 0,
+                "ty": "sh",
+                "ix": 1,
+                "ks": {
+                  "a": 0,
+                  "k": {
+                    "i": [[-14.98, -14.98], [14.979, -14.979], [14.98, 14.981], [-14.98, 14.979]],
+                    "o": [[14.979, 14.979], [-14.98, 14.981], [-14.98, -14.979], [14.98, -14.98]],
+                    "v": [[27.125, -27.124], [27.125, 27.123], [-27.123, 27.123], [-27.123, -27.124]],
+                    "c": true
+                  },
+                  "ix": 2
+                },
+                "nm": "Path 1",
+                "mn": "ADBE Vector Shape - Group",
+                "hd": false
+              },
+              {
+                "ty": "fl",
+                "c": {"a": 0, "k": [0.0196, 0.7255, 0.4627, 1], "ix": 4},
+                "o": {"a": 0, "k": 100, "ix": 5},
+                "r": 1,
+                "bm": 0,
+                "nm": "Fill 1",
+                "mn": "ADBE Vector Graphic - Fill",
+                "hd": false
+              },
+              {
+                "ty": "tr",
+                "p": {"a": 0, "k": [421.499, 555.859], "ix": 2},
+                "a": {"a": 0, "k": [0, 0], "ix": 1},
+                "s": {"a": 0, "k": [100, 100], "ix": 3},
+                "r": {"a": 0, "k": 0, "ix": 6},
+                "o": {"a": 0, "k": 100, "ix": 7},
+                "sk": {"a": 0, "k": 0, "ix": 4},
+                "sa": {"a": 0, "k": 0, "ix": 5},
+                "nm": "Transform"
+              }
+            ],
+            "nm": "Group 1",
+            "np": 2,
+            "cix": 2,
+            "bm": 0,
+            "ix": 1,
+            "mn": "ADBE Vector Group",
+            "hd": false
+          }
+        ],
+        "ip": 0,
+        "op": 50,
+        "st": 0,
+        "bm": 0
+      }
+    ],
+    "markers": []
+  };
+
+  var animation = lottie.loadAnimation({
+    container: document.getElementById('lottie-animation'),
+    renderer: 'svg',
+    loop: true,
+    autoplay: true,
+    animationData: animationData
+  });
+
+  // Show contact card after 3 seconds
+  setTimeout(() => {
+    document.getElementById('preloader').style.display = 'none';
+    document.getElementById('contact-card').classList.remove('hidden');
+  }, 3000);
+
+  // Save to contacts action
+  document.getElementById('save-contact').addEventListener('click', () => {
+    window.location.href = 'vcards/XdqIyMdr.vcf';
+  });
+</script>
+</body>
+</html>
