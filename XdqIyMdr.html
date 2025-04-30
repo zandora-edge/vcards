@@ -17,6 +17,12 @@
       margin: 0;
       font-family: 'Raleway', sans-serif;
       background-color: #1E1E1E;
+      background-image: url('https://res.cloudinary.com/zandora/image/upload/v1746009396/vCards%20%7C%20drp.lt/Nouh_Alessa_fpyclh.jpg?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      height: 100vh;
+      overflow: hidden;
     }
     .hidden { display: none; }
 
@@ -48,19 +54,6 @@
       color: #FFFFFF;
     }
 
-    .preloader-footer {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      margin-top: 20px;
-    }
-
-    .preloader-footer__title {
-      margin-top: 24px;
-      color: #798694;
-    }
-
     .preloader-content__icons {
       display: flex;
       flex-direction: row;
@@ -74,7 +67,97 @@
       width: 84px;
     }
 
+    .contact-card {
+      background: rgba(255, 255, 255, 0.95);
+      border-radius: 16px;
+      width: 100%;
+      max-width: 350px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+    }
+
+    .card-header {
+      background-image: url('https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&auto=format&fit=crop&w=350&h=300&q=80');
+      background-size: cover;
+      background-position: center;
+      height: 300px;
+      position: relative;
+      border-top-left-radius: 16px;
+      border-top-right-radius: 16px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-end;
+      padding-bottom: 16px;
+    }
+
+    .card-header::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.3); /* Slight overlay for better text visibility */
+    }
+
+    .logo-watermark {
+      opacity: 0.7;
+      width: 80px;
+      height: auto;
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      z-index: 1;
+    }
+
+    .name-watermark {
+      color: white;
+      font-size: 1.5rem; /* 24px */
+      font-weight: bold;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+      margin-bottom: 4px;
+    }
+
+    .title-watermark {
+      color: #d1d5db; /* Light gray */
+      font-size: 0.875rem; /* 14px */
+      text-align: center;
+      position: relative;
+      z-index: 1;
+      margin-bottom: 8px;
+    }
+
+    .card-content {
+      padding: 24px;
+    }
+
+    .contact-buttons {
+      width: 100%;
+      max-width: 300px;
+    }
+
+    .btn-primary {
+      width: 100%;
+      background-color: #000000;
+      color: white;
+      padding: 12px;
+      border-radius: 8px;
+      text-align: center;
+      font-weight: 600;
+      transition: background-color 0.3s;
+      position: relative;
+      z-index: 1;
+    }
+
+    .btn-primary:hover {
+      background-color: #333333;
+    }
+
     .footer {
+      position: fixed;
       bottom: 10px;
       width: 100%;
       background: transparent;
@@ -82,10 +165,11 @@
       text-align: center;
       padding: 10px 0;
       font-size: 14px;
+      z-index: 1000;
     }
   </style>
 </head>
-<body class="bg-gray-900 text-white font-raleway">
+<body class="bg-gray-900 text-black font-raleway">
 
 <!-- Preloader Section -->
 <div id="preloader" class="asset-preloader-wrapper">
@@ -129,39 +213,20 @@
 
 <!-- Contact Card Section -->
 <div id="contact-card" class="min-h-screen flex items-center justify-center p-4 hidden">
-  <div class="bg-gray-800 rounded-lg shadow-lg p-6 w-full max-w-md">
-    <div class="flex justify-center mb-4">
-      <img src="https://res.cloudinary.com/zandora/image/upload/v1745995992/Ligabue/Ligabue_W_j5k3pg.png" alt="Ligabue Logo" class="w-32 h-auto">
-    </div>
-    <br>
-    <h1 class="text-2xl font-bold text-center mb-4">Nouh Alessa</h1>
-    <p class="text-center text-lg mb-2">Finance Manager</p>
-    <p class="text-center text-md mb-4">Ligabue Saudi Arabia Ltd.</p>
-    <div class="space-y-3">
-      <div class="flex items-center">
-        <svg class="w-5 h-5 mr-2 text-green-500" fill="currentColor" viewBox="0 0 20 20">
-          <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path>
-          <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path>
-        </svg>
-        <a href="mailto:nouh.alessa@ligabue.it" class="text-green-400 hover:underline">nouh.alessa@ligabue.it</a>
-      </div>
-      <div class="flex items-center">
-        <svg class="w-5 h-5 mr-2 text-green-500" fill="currentColor" viewBox="0 0 20 20">
-          <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"></path>
-        </svg>
-        <a href="tel:+966555972350" class="text-green-400 hover:underline">+966 555 972 350</a>
-      </div>
-      <div class="flex items-center">
-        <svg class="w-5 h-5 mr-2 text-green-500" fill="currentColor" viewBox="0 0 20 20">
-          <path d="M4.555 2.168a1 1 0 00-.86.496l-1.543 2.575A1 1 0 002.648 6.5h14.704a1 1 0 00.496-1.86L16.305 2.664a1 1 0 00-.86-.496H4.555zM2.648 8.5a1 1 0 00-1 1v7a1 1 0 001 1h14.704a1 1 0 001-1v-7a1 1 0 00-1-1H2.648z"></path>
-        </svg>
-        <a href="https://ligabue.it" target="_blank" class="text-green-400 hover:underline">ligabue.it</a>
+  <div class="contact-card">
+    <div class="card-header">
+      <img src="https://res.cloudinary.com/zandora/image/upload/v1745995992/Ligabue/Ligabue_W_j5k3pg.png" alt="Ligabue Logo" class="logo-watermark">
+      <h1 class="name-watermark">Nouh Alessa</h1>
+      <p class="title-watermark">Finance Manager at Ligabue Saudi Arabia Ltd. in Saudi Arabia</p>
+      <div class="contact-buttons">
+        <button id="save-contact" class="btn-primary">Save contact</button>
       </div>
     </div>
-    <button id="save-contact" class="mt-6 w-full bg-green-500 text-white py-2 rounded-md hover:bg-green-600">Save to Contacts</button>
-    <div class="mt-6 text-center">
-      <p class="mb-2">Scan to Share</p>
-      <img id="qr-code" src="https://vcrd.drp.lt/qr/XdqIyMdr.png" alt="QR Code" class="mx-auto w-32 h-32">
+    <div class="card-content">
+      <div class="text-center">
+        <p class="text-sm font-semibold mb-2">Scan to Share</p>
+        <img id="qr-code" src="https://vcrd.drp.lt/qr/XdqIyMdr.png" alt="QR Code" class="mx-auto w-32 h-32">
+      </div>
     </div>
   </div>
 </div>
@@ -547,7 +612,7 @@
 
   // Save to contacts action
   document.getElementById('save-contact').addEventListener('click', () => {
-    window.location.href = 'vcards/XdqIyMdr.vcf';
+    window.location.href = 'vcards/nouh_alessa_vcard.vcf';
   });
 </script>
 </body>
