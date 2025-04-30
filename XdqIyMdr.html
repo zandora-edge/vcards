@@ -8,6 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
   <meta name="theme-color" content="#1E1E1E">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="icon" href="https://res.cloudinary.com/zandora/image/upload/v1718046564/Droplet/droplet_favicon.ico" type="image/x-icon">
   <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.10.2/lottie.min.js"></script>
   <script src="https://cdn.tailwindcss.com"></script>
@@ -70,16 +71,16 @@
       background: rgba(255, 255, 255, 0.95);
       border-radius: 16px;
       width: 100%;
-      max-width: 350px;
+      max-width: 400px;
       box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
       overflow: hidden;
     }
 
     .card-header {
-      background-image: url('https://res.cloudinary.com/zandora/image/upload/v1746009396/vCards%20%7C%20drp.lt/Nouh_Alessa_fpyclh.jpg');
+      background-image: url('https://res.cloudinary.com/zandora/image/upload/v1746009396/vCards%20%7C%20drp.lt/Nouh_Alessa_fpyclh.jpg?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=350&q=80');
       background-size: cover;
       background-position: center;
-      height: 300px;
+      height: 350px;
       position: relative;
       border-top-left-radius: 16px;
       border-top-right-radius: 16px;
@@ -110,6 +111,13 @@
       z-index: 1;
     }
 
+    .text-container {
+      margin-top: 40px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
     .name-watermark {
       color: white;
       font-size: 1.5rem; /* 24px */
@@ -127,6 +135,8 @@
       position: relative;
       z-index: 1;
       margin-bottom: 8px;
+      max-width: 300px; /* Constrain width to make text wrap neatly */
+      padding: 0 10px; /* Add padding for better spacing */
     }
 
     .card-content {
@@ -135,12 +145,12 @@
 
     .contact-buttons {
       width: 100%;
-      max-width: 300px;
+      max-width: 350px;
     }
 
     .btn-primary {
       width: 100%;
-      background-color: #000000;
+      background-color: #111827; /* Updated to match #111827 */
       color: white;
       padding: 12px;
       border-radius: 8px;
@@ -152,13 +162,10 @@
     }
 
     .btn-primary:hover {
-      background-color: #333333;
+      background-color: #1f2937; /* Slightly lighter shade for hover effect */
     }
 
     .footer {
-      position: fixed;
-      bottom: 10px;
-      width: 100%;
       background: transparent;
       color: white;
       text-align: center;
@@ -208,6 +215,9 @@
       </div>
     </div>
   </div>
+  <footer class="footer">
+    © 2025 drp.lt, All rights reserved.
+  </footer>
 </div>
 
 <!-- Contact Card Section -->
@@ -215,8 +225,10 @@
   <div class="contact-card">
     <div class="card-header">
       <img src="https://res.cloudinary.com/zandora/image/upload/v1745995992/Ligabue/Ligabue_W_j5k3pg.png" alt="Ligabue Logo" class="logo-watermark">
-      <h1 class="name-watermark">Nouh Alessa</h1>
-      <p class="title-watermark">Finance Manager at Ligabue Saudi Arabia Ltd. in Saudi Arabia</p>
+      <div class="text-container">
+        <h1 class="name-watermark">Nouh Alessa</h1>
+        <p class="title-watermark">Finance Manager at Ligabue Saudi Arabia Ltd. in Saudi Arabia</p>
+      </div>
       <div class="contact-buttons">
         <button id="save-contact" class="btn-primary">Save contact</button>
       </div>
@@ -229,10 +241,6 @@
     </div>
   </div>
 </div>
-
-<footer class="footer">
-  © 2025 drp.lt, All rights reserved.
-</footer>
 
 <script>
   var animationData = {
