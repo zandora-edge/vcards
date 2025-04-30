@@ -3,8 +3,10 @@ VERSION:3.0
 FN;CHARSET=UTF-8:Mohamed Tahawy
 N;CHARSET=UTF-8:Tahawy;Mohamed;;;
 EMAIL;CHARSET=UTF-8;type=WORK,INTERNET:mohamed.eltahawy@ligabue.it
+TEL;TYPE=CELL:+971 501 337 244
+TEL;TYPE=WORK,VOICE:+971 25 832 553
 ROLE;CHARSET=UTF-8:Regional HR Manager - Gulf Area
 ORG;CHARSET=UTF-8:Ligabue Gulf Services
-URL;type=WORK;CHARSET=UTF-8:https://ligabue.it/
-REV:2025-04-30T15:36:34.530Z
+URL;type=WORK;CHARSET=UTF-8:https://ligbaue.it/
+REV:2025-04-30T15:41:05.090Z
 END:VCARD
