@@ -1,0 +1,12 @@
+BEGIN:VCARD
+VERSION:3.0
+FN;CHARSET=UTF-8:Frederic Deodato
+N;CHARSET=UTF-8:Deodato;Frederic;;;
+EMAIL;CHARSET=UTF-8;type=WORK,INTERNET:frederic.deodato@ligabue.it
+TEL;TYPE=WORK,VOICE:(+39) 335 573 9078
+ADR;CHARSET=UTF-8;TYPE=WORK:;;Via Maria Ghioldi-Schweizer;Mendrisio;;2 - CH6850;Switzerland
+TITLE;CHARSET=UTF-8:Industrial Division Director
+ORG;CHARSET=UTF-8:Industrial Swiss S.A.
+URL;type=WORK;CHARSET=UTF-8:https://ligabue.it
+REV:2025-05-19T07:20:32.154Z
+END:VCARD
