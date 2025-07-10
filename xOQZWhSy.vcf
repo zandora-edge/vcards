@@ -1,0 +1,14 @@
+BEGIN:VCARD
+VERSION:3.0
+FN;CHARSET=UTF-8:Adrian Lustica
+N;CHARSET=UTF-8:Lustica;Adrian;;;
+EMAIL;CHARSET=UTF-8;type=WORK,INTERNET:adrian.lustica@ligabue.it
+TEL;TYPE=CELL:+966 138 305 454
+TEL;TYPE=WORK,VOICE:+966 555 632 850
+TITLE;CHARSET=UTF-8:Senior Operations Manager Onshore
+ORG;CHARSET=UTF-8:Ligabue Saudi Arabia Ltd.
+LABEL;CHARSET=UTF-8;TYPE=WORK:Al Saadoun Tower\, 4th Floor
+ADR;CHARSET=UTF-8;TYPE=WORK:;;Khaled Bin Waleed St;Dammam;Eastern Province;31814;Kingdom of Saudi Arabia
+URL;type=WORK;CHARSET=UTF-8:https://ligabue.it/
+REV:2025-06-26T10:01:42.656Z
+END:VCARD
