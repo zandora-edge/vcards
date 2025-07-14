@@ -1,0 +1,13 @@
+BEGIN:VCARD
+VERSION:3.0
+FN;CHARSET=UTF-8:Erwan Puel
+N;CHARSET=UTF-8:Puel;Erwan;;;
+EMAIL;CHARSET=UTF-8;type=WORK,INTERNET:erwan.puel@ligabue.it
+TEL;TYPE=CELL:+966 539 608 209
+TITLE;CHARSET=UTF-8:Operations Director Gulf Area
+ORG;CHARSET=UTF-8:Ligabue Saudi Arabia Ltd.
+LABEL;CHARSET=UTF-8;TYPE=WORK:Al Saadoun Tower\, 4th Floor
+ADR;CHARSET=UTF-8;TYPE=WORK:;;Khaled Bin Waleed St;Dammam;Eastern Province;31814;Kingdom of Saudi Arabia
+URL;type=WORK;CHARSET=UTF-8:https://ligabue.it/
+REV:2025-06-26T10:01:42.656Z
+END:VCARD
