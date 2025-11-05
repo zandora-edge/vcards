@@ -1,0 +1,11 @@
+BEGIN:VCARD
+VERSION:3.0
+FN;CHARSET=UTF-8:Patrick Rakesh
+N;CHARSET=UTF-8:Rakesh;Patrick;;;
+EMAIL;CHARSET=UTF-8;type=WORK,INTERNET:patrick.rakesh@ligabue.it
+TEL;TYPE=WORK,VOICE:+966 555 267 350
+ROLE;CHARSET=UTF-8:Deputy Operations Director
+ORG;CHARSET=UTF-8:Ligabue Saudi Arabia Ltd.
+URL;type=WORK;CHARSET=UTF-8:https://ligabue.it
+REV:2025-04-29T13:56:22.594Z
+END:VCARD
